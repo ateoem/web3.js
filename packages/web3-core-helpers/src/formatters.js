@@ -236,7 +236,11 @@ var outputBlockFormatter = function(block) {
     block.gasLimit = utils.hexToNumber(block.gasLimit);
     block.gasUsed = utils.hexToNumber(block.gasUsed);
     block.size = utils.hexToNumber(block.size);
+    try {
     block.timestamp = utils.hexToNumber(block.timestamp);
+    } catch (e) {
+        block.timestamp = utils.hexToNumber(block.timestamp/1000000);
+    }
     if (block.number !== null)
         block.number = utils.hexToNumber(block.number);
 
