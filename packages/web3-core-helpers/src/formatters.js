@@ -239,7 +239,7 @@ var outputBlockFormatter = function(block) {
     try {
     block.timestamp = utils.hexToNumber(block.timestamp);
     } catch (e) {
-        block.timestamp = utils.hexToNumber(block.timestamp/1000000);
+        block.timestamp = utils.hexToNumber(Math.floor(block.timestamp/1000000000));
     }
     if (block.number !== null)
         block.number = utils.hexToNumber(block.number);
